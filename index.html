@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>flights</title>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
+  
+  <script src="https://d3js.org/d3-queue.v2.min.js"></script>
+  
+
+   <script src="d3.v4.min.js"></script>
+   
+
+  
+  
+  <style>
+  
+  
+  
+  
+  
+  
+    body, html {
+      width: 1300px;
+      height: 100%;
+    }
+
+    svg {
+      width:43%;
+      height:100%;
+      float: left;
+    }
+
+
+
+    .axis {
+      font-family: arial;
+      font-size: 0.7em;
+	  
+    }
+    
+    text {
+      fill: black;
+      stroke: none;
+    }
+      
+    .label {
+      font-size: 10px;
+    }
+      
+    path {
+      fill: none;
+      stroke: black;
+      stroke-width: 2px;
+    }
+	
+    .tick {
+      fill: none;
+      stroke: black;
+    }
+    
+    circle {
+      opacity: 0.9;
+      stroke: none;
+  fill-opacity: 0.6;
+  fill: red;  
+    }
+	
+
+.area {
+  fill: lightsteelblue;
+}
+
+.bar { fill: #4c4cff;
+
+ }
+
+  
+  			rect:hover {
+				fill: orange;
+			}
+
+
+ 
+.line {
+  fill: none;
+  stroke: #D4D8DA;
+  stroke-width: 1px;
+  shape-rendering: crispEdges;
+}
+
+
+h3 {
+display: relative;
+position: relative;
+  float: right;
+  right: 320px;
+   margin-top: 0px;
+   margin-left: 300;
+color: red;
+   
+   }
+	
+
+
+
+
+
+h2 { 
+  display: inline;
+  font-size: 20px;
+  margin-top: 1.67em;
+  margin-bottom: 1.67em;
+  margin-left: 0;
+  margin-right: 0;
+    font-weight: bold;
+  color:blue;
+}
+
+
+
+
+
+
+
+
+
+    </style>
+  </head>
+  <body>
+
+
+	
+<script type="text/javascript" src="script.js"></script>
+	</head>
+
+
+<body>
+
+
+
+
+    <h2>
+      <span>Brazil commercial airports</span> &#9992 Narrow-body</br>
+
+    </h2>
+
+    <h3>
+      <span>IATA Code</span> &#9992 A319, A320, A321, A350</br>
+  
+
+    </h3>	
+	
+
+    <svg id="map"></svg>
+    <svg id="chart">
+	
+	
+	
+</svg>	
+    
+
+
+
+
+  <script>
+    // load data with queue
+//    var url1 = "https://gist.githubusercontent.com/NatasaPeic/6d815c56233025fb8ed9f2d20f056dbe/raw/426fb47f0a6793776a044f17e66d17cbbf8061ad/countries.geo.json";	
+	
+    var url1 = "br2.json";
+    var url2 = "listing_count2.json";
+    var url3 = "estados4.csv";
+    var url4 = "flights.csv";
+    var url5 = "airports.csv";
+
+    
+    var q = d3_queue.queue(3)
+								    .defer(d3.json, url1)
+    								.defer(d3.json, url2)
+    								.defer(d3.csv, url3)
+    								.defer(d3.csv, url4)
+    								.defer(d3.csv, url5)
+    								.awaitAll(draw);
+  </script>
+	
+</body>
+</html>
